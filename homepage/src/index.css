@@ -158,3 +158,16 @@ body {
   background-color: var(--secondary-color);
   transition: width 0.3s ease;
 }
+
+/* Terms box */
+.terms-box {
+  background-color: #fafafa;
+  border: 2px solid #eee;
+  border-radius: var(--border-radius);
+  padding: 16px;
+  height: 200px;
+  overflow-y: auto;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #555;
+}
