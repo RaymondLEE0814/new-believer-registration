@@ -1,5 +1,5 @@
 import React from 'react';
-import { PartyPopper, Sparkles } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 function Step3() {
   return (
@@ -11,31 +11,43 @@ function Step3() {
         width: '80px', 
         height: '80px', 
         borderRadius: '50%', 
-        backgroundColor: 'var(--secondary-color)', 
-        color: 'white',
-        marginBottom: '24px'
+        backgroundColor: 'var(--colors-surface-soft)', 
+        color: 'var(--colors-ink)',
+        marginBottom: '24px',
+        border: '1px solid var(--colors-hairline)'
       }}>
-        <PartyPopper size={40} />
+        <CheckCircle2 size={40} />
       </div>
       
-      <h2 style={{ color: 'var(--primary-color)', fontSize: '28px', marginBottom: '16px' }}>
-        등록이 완료되었습니다!
+      <h2 style={{ 
+        fontFamily: 'var(--font-display)',
+        color: 'var(--colors-ink)', 
+        fontSize: '28px', 
+        fontWeight: '500',
+        marginBottom: '16px' 
+      }}>
+        등록이 완료되었습니다
       </h2>
       
-      <p style={{ fontSize: '18px', lineHeight: '1.6', color: 'var(--text-color)', marginBottom: '32px' }}>
-        우리 교회학교의 새로운 가족이 되신 것을<br/>
-        진심으로 환영합니다. <Sparkles size={20} className="inline-block" color="#f7a072" style={{verticalAlign: 'middle', display: 'inline-block'}}/>
+      <p style={{ 
+        fontSize: '16px', 
+        lineHeight: '1.6', 
+        color: 'var(--colors-body)', 
+        marginBottom: '32px' 
+      }}>
+        입력해주신 정보는 담당 선생님께 전달되며,<br/>
+        곧 연락드리도록 하겠습니다.
       </p>
 
       <div style={{ 
-        backgroundColor: '#fff', 
-        padding: '20px', 
-        borderRadius: 'var(--border-radius)', 
-        border: '2px dashed var(--secondary-color)'
+        backgroundColor: 'var(--colors-canvas)', 
+        padding: '24px', 
+        borderRadius: 'var(--rounded-lg)', 
+        border: '1px solid var(--colors-hairline)'
       }}>
-        <p style={{ fontSize: '15px', color: '#666' }}>
-          입력해주신 정보는 담당 선생님께 전달되며,<br/>
-          곧 연락드리도록 하겠습니다.
+        <p style={{ fontSize: '14px', color: 'var(--colors-charcoal)' }}>
+          우리 교회학교의 새로운 가족이 되신 것을<br/>
+          진심으로 환영합니다.
         </p>
       </div>
     </div>

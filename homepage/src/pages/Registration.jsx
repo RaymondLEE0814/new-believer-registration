@@ -67,7 +67,7 @@ function Registration() {
     <div className="app-container">
       {step < 4 && (
         <div className="header">
-          <h1>초등부 새신자 등록 <Heart className="inline-block text-primary" size={24} color="#f7a072" style={{verticalAlign: 'bottom'}} /></h1>
+          <h1>초등부 새신자 등록 <Heart className="inline-block" size={24} style={{verticalAlign: 'bottom'}} /></h1>
           <p>환영합니다! 등록카드를 작성해주세요.</p>
         </div>
       )}

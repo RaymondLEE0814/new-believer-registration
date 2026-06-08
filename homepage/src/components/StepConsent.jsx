@@ -14,7 +14,7 @@ function StepConsent({ onNext }) {
 
   return (
     <div>
-      <h2 style={{ fontSize: '20px', marginBottom: '16px', color: 'var(--primary-color)' }}>
+      <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '24px', fontWeight: '500', marginBottom: '16px', color: 'var(--colors-ink)' }}>
         개인정보 수집 및 이용 동의
       </h2>
 
