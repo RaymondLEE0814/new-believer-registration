@@ -4,9 +4,11 @@ import Step1 from './components/Step1';
 import Step2 from './components/Step2';
 import Step3 from './components/Step3';
 import { Heart } from 'lucide-react';
+import { supabase } from './lib/supabaseClient';
 
 function App() {
   const [step, setStep] = useState(1);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     school: '',
@@ -28,10 +30,36 @@ function App() {
     setStep(step - 1);
   };
 
-  const handleSubmit = (data) => {
+  const handleSubmit = async (data) => {
     const finalData = { ...formData, ...data };
-    console.log("=== 제출된 새신자 데이터 ===", finalData);
-    setStep(3); // 완료 화면으로
+    setIsSubmitting(true);
+    
+    try {
+      const { error } = await supabase
+        .from('new_believers')
+        .insert([
+          {
+            name: finalData.name,
+            school: finalData.school,
+            grade: finalData.grade,
+            class_number: finalData.classNumber,
+            birthdate: finalData.birthdate || null,
+            parent_phone: finalData.parentPhone,
+            address: finalData.address,
+            allergies: finalData.allergies,
+            notes: finalData.notes,
+          }
+        ]);
+
+      if (error) throw error;
+      
+      setStep(3); // 완료 화면으로
+    } catch (error) {
+      console.error('Error saving data:', error);
+      alert('데이터 저장 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -54,7 +82,7 @@ function App() {
           <Step1 formData={formData} onNext={handleNext} />
         )}
         {step === 2 && (
-          <Step2 formData={formData} onPrev={handlePrev} onSubmit={handleSubmit} />
+          <Step2 formData={formData} onPrev={handlePrev} onSubmit={handleSubmit} isSubmitting={isSubmitting} />
         )}
         {step === 3 && (
           <Step3 />

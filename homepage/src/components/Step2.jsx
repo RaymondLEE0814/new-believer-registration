@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Step2({ formData, onPrev, onSubmit }) {
+function Step2({ formData, onPrev, onSubmit, isSubmitting }) {
   const [localData, setLocalData] = useState({
     allergies: formData.allergies,
     parentPhone: formData.parentPhone,
@@ -74,8 +74,8 @@ function Step2({ formData, onPrev, onSubmit }) {
         <button className="btn btn-secondary" onClick={onPrev}>
           이전으로
         </button>
-        <button className="btn" onClick={handleSubmitClick}>
-          등록 완료하기
+        <button className="btn" onClick={handleSubmitClick} disabled={isSubmitting}>
+          {isSubmitting ? '등록 중...' : '등록 완료하기'}
         </button>
       </div>
     </div>
